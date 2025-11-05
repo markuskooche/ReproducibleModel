@@ -5,4 +5,6 @@ mlruns/
 outputs/
 wandb/
 artifacts/
+multirun/
+random_forest_dir/
 .ipynb_checkpoints/
