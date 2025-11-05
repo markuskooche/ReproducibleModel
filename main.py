@@ -21,7 +21,7 @@ _steps = [
 
 
 # This automatically reads in the configuration
-@hydra.main(version_base=None, config_name='config')  # Adding version_base for Python 3.13 compatibility
+@hydra.main(version_base=None, config_path='.', config_name='config')  # Adding version_base for Python 3.13 compatibility
 def go(config: DictConfig):
 
     # Setup the wandb experiment. All runs will be grouped under this name
@@ -40,8 +40,8 @@ def go(config: DictConfig):
             _ = mlflow.run(
                 f"{config['main']['components_repository']}/get_data",
                 "main",
-                version='main',
-                env_manager="conda",
+                #version='main',
+                #env_manager="conda",
                 parameters={
                     "sample": config["etl"]["sample"],
                     "artifact_name": "sample.csv",
